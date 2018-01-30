@@ -42,20 +42,18 @@ val date_to_string_test3 = date_to_string (2013, 12, 31) = "December 1, 2013"
 val number_before_reaching_sum_test1 = number_before_reaching_sum (10, [1,2,3,4,5]) = 3
 val number_before_reaching_sum_test2 = number_before_reaching_sum (1, [1,2,3,4,5]) = 0
 val number_before_reaching_sum_test3 = number_before_reaching_sum (15, [1,2,3,4,5]) = 4
-val number_before_reaching_sum_test3 = number_before_reaching_sum (16, [1,2,3,4,5]) = 5
 
 val what_month_test1 = what_month 70 = 3
 val what_month_test2 = what_month 31 = 1
 val what_month_test3 = what_month 364 = 12
 val what_month_test4 = what_month 180 = 6
 
-val what_month_test1 = month_range (31, 34) = [1,2,2,2]
-val what_month_test2 = month_range (1, 3) = [1,1,1]
-val what_month_test3 = month_range (58, 60) = [2, 2, 3]
+val month_range_test1 = month_range (31, 34) = [1,2,2,2]
+val month_range_test2 = month_range (1, 3) = [1,1,1]
+val month_range_test3 = month_range (58, 60) = [2, 2, 3]
 
 val oldest_test1 = oldest([(2012,2,28),(2011,3,31),(2011,4,28)]) = SOME (2011,3,31)
 val oldest_test2 = oldest([(2011,4,28),(2011,3,31),(2012,2,28)]) = SOME (2011,3,31)
 val oldest_test3 = oldest([(2012,2,28),(2011,4,28),(2011,3,31)]) = SOME (2011,3,31)
 val oldest_test4 = oldest([(2011,3,31),(2011,4,28),(2012,2,28)]) = SOME (2011,3,31)
-val oldest_test5 = oldest([]) = NONE
-
+val oldest_test5 = oldest([]) = NONE;
