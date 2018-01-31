@@ -57,3 +57,14 @@ val oldest_test2 = oldest([(2011,4,28),(2011,3,31),(2012,2,28)]) = SOME (2011,3,
 val oldest_test3 = oldest([(2012,2,28),(2011,4,28),(2011,3,31)]) = SOME (2011,3,31)
 val oldest_test4 = oldest([(2011,3,31),(2011,4,28),(2012,2,28)]) = SOME (2011,3,31)
 val oldest_test5 = oldest([]) = NONE;
+
+(* Challenge problems tests *)
+val reasonable_date_test1 = reasonable_date (2018,1,1) = true
+val reasonabel_date_test2 = reasonable_date (2020, 2, 29) = true
+val reasonable_date_test3 = reasonable_date (2018, 2, 29) = false
+val reasonable_date_test4 = reasonable_date (0,1,1) = false
+val reasonable_date_test5 = reasonable_date (1, 0, 1) = false
+val reasonable_date_test6 = reasonable_date (1,13, 1) = false
+val reasonable_date_test7 = reasonable_date (1, 1, 0) = false
+val reasonable_date_test8 = reasonable_date (1,1,32) = false
+							   
