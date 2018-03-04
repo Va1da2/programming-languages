@@ -18,3 +18,23 @@
   (cond [(= x 0) 0]
         [(= x 1) (y-thunk)]
         [#t (+ (y-thunk) (my-mult (- x 1) y-thunk))]))
+
+(define (my-delay th)
+  (mcons #f th))       ; a one-of "type" we will update /in place/
+
+(define (my-force p)
+  (if (mcar p)
+      (mcdr p)
+      (begin (set-mcar! p #t)
+             (set-mcdr! p ((mcdr p)))
+             (mcdr p))))
+
+; using this to ilustrate the point:
+(my-mult 0 (let ([p (my-delay (lambda () (slow-add 3 4)))])
+             (lambda () (my-force p))))
+
+(my-mult 1 (let ([p (my-delay (lambda () (slow-add 3 4)))])
+             (lambda () (my-force p))))
+
+(my-mult 100 (let ([p (my-delay (lambda () (slow-add 3 4)))])
+               (lambda () (my-force p))))
